@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Product Enquiry for WooCommerce
  * Description: Allows prospective customers or visitors to make enquiry about a product, right from within the product page.
- * Version: 2.0
+ * Version: 2.1
  * Author: WisdmLabs
  * Author URI: https://wisdmlabs.com
  * Plugin URI: https://wordpress.org/plugins/product-enquiry-for-woocommerce
@@ -83,7 +83,7 @@ function wdm_display_btn_func()
                 add_action('woocommerce_after_single_product_summary', 'ask_about_product_button');
         }
     } else {
-        add_action('woocommerce_single_product_summary', 'ask_about_product_button', 30);        
+        add_action('woocommerce_single_product_summary', 'ask_about_product_button', 30);
     }
     
         // if (isset($form_init_data['show_after_summary'])) {
@@ -94,13 +94,6 @@ function wdm_display_btn_func()
     // } else {
         //show ask button after a single product summary as default
     // }
-
-    if (isset($form_init_data['show_at_page_end'])) {
-        if ($form_init_data['show_at_page_end'] == 1) {
-            //show ask button at the end of the page of a single product
-            add_action('woocommerce_after_single_product', 'ask_about_product_button', 10);
-        }
-    }
 }
 
 function ask_about_product_button()
@@ -212,7 +205,6 @@ function ask_about_product()
     <!-- Load JavaScript files -->
     <?php
     
-    wp_enqueue_script("jquery");
     wp_enqueue_script("jquery-ui-core", array("jquery"));
     wp_enqueue_script("jquery-ui-dialog", array("jquery"));
     wp_enqueue_script("wdm-validate", plugins_url("js/wdm_jquery.validate.min.js", __FILE__));
@@ -259,6 +251,11 @@ function url_to_domain($site_url)
 
 add_action('admin_menu', 'create_ask_product_menu');
 
+add_action('admin_enqueue_scripts', 'includeBackendFiles');
+
+function includeBackendFiles()
+{
+}
 function create_ask_product_menu()
 {
     //create a submenu under Woocommerce 'Products' menu
@@ -270,101 +267,46 @@ function create_ask_product_menu()
 
 function add_ask_product_settings()
 {
-    //settings page
+
+    wp_enqueue_script('wdm_bootstrap_js', plugins_url("/js/bootstrap.min.js", __FILE__), array('jquery'));
     
+    wp_enqueue_style('wdm_bootstrap_css', plugins_url('css/bootstrap.min.css', __FILE__));
+    //settings page
     wp_enqueue_script('wdm_wpi_validation', plugins_url("js/wdm_jquery.validate.min.js", __FILE__), array('jquery'));
+   // <?php echo plugins_url('/img/pro.png', __FILE__);
+    
     ?>
     
       <div class="wrap wdm_leftwrap">
         <div class='wdm-pro-notification'>
-      
-      <div class='wdm-title-layer'>
-        <h4><?php _e("Get The New Premium Version", "product-enquiry-for-woocommerce");?></h4>
-      </div> <!--wdm-title-layer ends-->
-      
-      <div class="wdm-content-layer">
-        <div class="wdm-left-content">
-            <img src='<?php echo plugins_url('img/PEP_new.png', __FILE__); ?>' class='wdm_pro_logo'>
-            <div class="wdm_upgrade">
-                        <a class='wdm_upgrade_pro_link' href='https://wisdmlabs.com/woocommerce-product-enquiry-pro/?utm_medium=in-product-clicks&utm_campaign=product-enquiry-free&utm_source=in-product-ads&utm_content=top-banner-image
-' target='_blank'><?php _e("UPGRADE TO PRO", "product-enquiry-for-woocommerce");?> </a>
-                </div>
-        </div>
-        <div class="wdm-right-content"> 
-            <div class="wdm-features">
-               
-               <div class='wdm-feature-list'>
-                    <div>
-                        <div class="wdm-feature">
-                            <span class="wdmicon-filter"></span>
-                            <p><?php _e("Filter enquires", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-                    
-                        <div class="wdm-feature">
-                            <span class="wdmicon-enlarge"></span>
-                            <p><?php _e("Responsive", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-                                                                                    
-                        <div class="wdm-feature">
-                            <span class="wdmicon-paint-format"></span>
-                            <p><?php _e("Custom styling", "product-enquiry-for-woocommerce");?></p>
-                        </div>
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ 
 
-                         <div class="wdm-feature">
-                            <span class="wdmicon-earth"></span>
-                            <p><?php _e("WPML Compatible", "product-enquiry-for-woocommerce");?></p>
-                         </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div>
-                        <div class="wdm-feature">
-                            <span class="wdmicon-eye"></span>
-                            <p style="width: 60%;"><?php _e("Enquiries in dashboard", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-                            
-                        <div class="wdm-feature">
-                            <span class="wdmicon-drawer2"></span>
-                            <p style="width: 70%;"><?php _e("Export enquiry records", "product-enquiry-for-woocommerce");?></p>
-                        </div>  
-                            
-                        <div class="wdm-feature">
-                            <span class="wdmicon-bubbles3"></span>
-                            <p><?php _e("Localization ready", "product-enquiry-for-woocommerce");?></p>
-                        </div>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+    <a href="http://quoteup.wisdmlabs.com" target="_blank">
+      <img src="<?php echo plugins_url('/img/pep.png', __FILE__); ?>" width="100%" alt="Product Enquiry Pro">
+    </a>
+    </div>
 
-                        <div class="wdm-feature">
-                            <span class="wdmicon-pencil2"></span>
-                            <p style="width: 60%;"><?php _e("Customizable Enquiry Form", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div>
-                        <div class="wdm-feature">
-                            <span class="wdmicon-variable-products"></span>
-                            <p style="width: 65%;"><?php _e("Supports Variable Products", "product-enquiry-for-woocommerce");?></p>
-                        </div>
+    <div class="item">
+    <a href="https://wisdmlabs.com/woocommerce-product-enquiry-pro" target="_blank">
+      <img src="<?php echo plugins_url('/img/pepoptions.png', __FILE__); ?>" width="100%" alt="Product Enquiry Pro">
+    </a>
+    </div>
+  </div>
 
-                        <div class="wdm-feature">
-                            <span class="wdmicon-quotation-system"></span>
-                            <p style="width: 65%;"><?php _e("Integrated Quotation System", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-
-                        <div class="wdm-feature">
-                            <span class="wdmicon-quote-pdf"></span>
-                            <p style="width: 65%;"><?php _e("Auto-Generate Quote PDFs", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-
-                        <div class="wdm-feature">
-                            <span class="wdmicon-multiproduct-enquiry"></span>
-                            <p style="width: 65%;"><?php _e("Multi-Product Enquiry or Quote Request", "product-enquiry-for-woocommerce");?></p>
-                        </div>
-                </div>
-                <div class="clear"></div>
-                </div>
-        </div>
-        </div>
-        </div>
-      <div class='clear'></div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev" style = "width:2% !important">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next" style = "width:2% !important">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>       
     </div> <!--wdm-pro-notification ends-->
     
     
@@ -483,66 +425,6 @@ wp_get_current_user();
 </p>
 <a class="wdm_upgrade_pro_link" href="https://wisdmlabs.com/woocommerce-product-enquiry-pro/?utm_medium=in-product-clicks&utm_campaign=product-enquiry-free&utm_source=in-product-ads&utm_content=product-enquiry-ideas-tab
 " target="_blank"><?php _e("UPGRADE TO PRO", "product-enquiry-for-woocommerce"); ?></a>
-</li>
-<li class="wdm-services-item">
-<div class="wdm-services-icon wdm-create-cu-email" ></div>
-<h3><?php _e("Create a Custom Email Template ", "product-enquiry-for-woocommerce");?></h3>
-<p class="wdm-services-desc">
-<?php _e("Style and create templates for your enquiry emails from your dashboard. ", "product-enquiry-for-woocommerce");?>
-</p>
-<input type="button" class="wdm-services-button one" value="Request Feature" />
-<div class="hide_class">
-<?php echo "<h4 class='wdm-req-title'>Please confirm your feature request</h4>"; ?>
-<form class="wdm-req-form create-a-custom-email" >
-<br><small><?php _e("Confirm Email-id : ", "product-enquiry-for-woocommerce");?></small>
-<input type="text" class="wdm-req-text" name="wdm-req-email" value="<?php echo $current_user->user_email ?>" />
-<input type="button" class="wdm-req-button" value="Send Request" name="request-feature" />
-<input type="hidden" class="id" name="id" value="create-a-custom-email" />
-    
-<div class="loading"></div>
-</form>
-<span class="wdm-close" ></span>
-</div>
-</li>
-<li class="wdm-services-item">
-<div class="wdm-services-icon wdm-analytics-eq" ></div>
-<h3><?php _e("Analytics For Your Enquiries ", "product-enquiry-for-woocommerce");?></h3>
-<p class="wdm-services-desc">
-<?php _e("Get detailed analytics for your enquiries based on products and other attributes. ", "product-enquiry-for-woocommerce");?>
-</p>
-<input type="button" class="wdm-services-button" value="Request Feature" />
-<div class="hide_class">
-<?php echo "<h4 class='wdm-req-title'>".__("Please confirm your feature request", "product-enquiry-for-woocommerce")."</h4>"; ?>
-<form class="wdm-req-form Analytics-for-your-enquiry" >
-<br><small><?php _e("Confirm Email-id : ", "product-enquiry-for-woocommerce");?></small>
-<input type="text" class="wdm-req-text" name="wdm-req-email" value="<?php echo $current_user->user_email ?>" />
-<input type="button" class="wdm-req-button" value="Send Request" name="request-feature" />
-<input type="hidden" class="id" name="id" value="Analytics-for-your-enquiry" />
-    
-<div class="loading"></div>
-</form>
-<span class="wdm-close" ></span>
-</div>
-</li>
-<li class="wdm-services-item">
-<div class="wdm-services-icon wdm-newsletter-int" ></div>
-<h3><?php _e("Newsletter Integration With PEP ", "product-enquiry-for-woocommerce");?></h3>
-<p class="wdm-services-desc">
-<?php _e("Get your newsletter plugin integrated seamlessly with PEP. ", "product-enquiry-for-woocommerce");?>
-</p>
-<input type="button" class="wdm-services-button" value="Request Feature" />
-<div class="hide_class">
-<h4 class='wdm-req-title'><?php _e("Please confirm your feature request", "product-enquiry-for-woocommerce");?></h4>
-<form class="wdm-req-form newsletter-integration-with-pep" >
-<br><small><?php _e("Confirm Email-id : ", "product-enquiry-for-woocommerce");?></small>
-<input type="text" class="wdm-req-text" name="wdm-req-email" value="<?php echo $current_user->user_email ?>" />
-<input type="button" class="wdm-req-button" value="Send Request" name="request-feature" />
-<input type="hidden" class="id" name="id" value="newsletter-integration-with-pep" />
-    
-<div class="loading"></div>
-</form>
-<span class="wdm-close" ></span>
-</div>
 </li>
 </ul>
 <!-- //code for displaying the hidden send button -->
@@ -710,8 +592,7 @@ echo wdmHelpTip($helptip);
     echo wdmHelpTip($helptip);
     ?>      
 <input type="text" class="wdm_wpi_input wdm_wpi_text" name="wdm_form_data[default_sub]" id="wdm_default_sub" value="<?php echo empty($form_data['default_sub']) ? __('Enquiry for a product from ', 'product-enquiry-for-woocommerce').get_bloginfo('name') : $form_data['default_sub'];?>"  />
-<br>
-<?php echo '<em>'.__(' Will be used if the customer does not enter a subject', 'product-enquiry-for-woocommerce').'</em>'; ?>
+
     </div>
     <div class='clear'></div>
     </div>
@@ -753,7 +634,7 @@ echo wdmHelpTip($helptip);
 <?php echo '<legend>'. __("Form Options", 'product-enquiry-for-woocommerce').'</legend>'; ?>
     <div class="fd">
     <div class='left_div'>
-    <label for="custom_label"> <?php _e("Button-Text for enquiry button", "product-enquiry-for-woocommerce");?> </label> 
+    <label for="custom_label"> <?php _e("Enquiry Button Label", "product-enquiry-for-woocommerce");?> </label> 
 </div>
     <div class='right_div'>
     <?php
@@ -777,10 +658,6 @@ echo wdmHelpTip($helptip);
 <label for="show_after_cart"><?php _e(" After single product summary ", "product-enquiry-for-woocommerce");?></label>
 <br />
       
-<input type="checkbox" class="wdm_wpi_input wdm_wpi_checkbox input-without-tip" name="wdm_form_data[show_at_page_end]" value="1" <?php echo (isset($form_data["show_at_page_end"]) ? "checked" : "" );?> id="show_at_page_end" />
-           
-       
-<label for="show_at_page_end"> <?php _e("At the end of single product page ", "product-enquiry-for-woocommerce");?></label>
         
 </div>
 <div class='clear'></div>
@@ -886,37 +763,7 @@ echo wdmHelpTip($helptip);
         </div>
         </fieldset>
         </div>
-   <br>
-        <div id="available">
-        <div class="layer_parent">
-    <div class="pew_upgrade_layer">
-   <div class="pew_uptp_cont">
-    <p><?php _e(" This feature is available in the PRO version. Click below to know more. ", "product-enquiry-for-woocommerce");?></p>
-    <a class="wdm_view_det_link" href="https://wisdmlabs.com/woocommerce-product-enquiry-pro/?utm_medium=in-product-clicks&utm_campaign=product-enquiry-free&utm_source=in-product-ads&utm_content=enquiry-settings-tab
-" target="_blank"><?php _e("View Details ", "product-enquiry-for-woocommerce");?> </a>
-    </div>
-   </div>    
-        <fieldset>
-    <legend><?php _e("Enable/Disable Add to Cart for all Products", "product-enquiry-for-woocommerce");?> </legend>
-    <img  src="<?php echo plugins_url('/img/img3.png', __FILE__); ?>" style='width:1048px;height:59px'/>
- </fieldset>
-<!-- 	    <br />
-        <br> -->
-     <fieldset>
-    <legend><?php _e("Enable/Disable PEP for all Products", "product-enquiry-for-woocommerce");?> </legend>
-    <img src="<?php echo plugins_url('/img/img2.png', __FILE__); ?>" style='width:953px;height:47px'/>
-      </fieldset>  
-<!-- 	   <br />
-       <br> -->
-        <fieldset>
-    <legend><?php _e("Redirect Page URL", "product-enquiry-for-woocommerce");?> </legend>
- <br>   
- <img  src="<?php echo plugins_url('/img/img1.png', __FILE__); ?>" style='width:735px;height:68px'/>
- <br/> 
-        </fieldset>
-    
-        </div>
-    </div>
+  
        
      <p>
     <input type="submit" class="wdm_wpi_input button-primary" value="Save Changes" id="wdm_ask_button" />

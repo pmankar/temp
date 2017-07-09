@@ -34,7 +34,7 @@ global $product;
 	</td><td>
 		<?php echo $product->get_categories( ', ', '<div class="posted_in">' . _n( 'Category:', 'Categories:', $cat_count, 'accesspress-store' ) . ' ', '.</div>' ); ?>
 
-		<?php echo $product->get_tags( ', ', '<div class="tagged_as">' . _n( 'Tag:', 'Tags:', $tag_count, 'accesspress-store' ) . ' ', '.</div>' ); ?>
+		<?php /* echo $product->get_tags( ', ', '<div class="tagged_as">' . _n( 'Tag:', 'Tags:', $tag_count, 'accesspress-store' ) . ' ', '.</div>' ); */?>
 
 		<?php do_action( 'woocommerce_product_meta_end' ); ?>
 	</td></tr></table>

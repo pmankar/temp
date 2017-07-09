@@ -4,8 +4,8 @@ Contributors: WisdmLabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest
 Tags: product enquiry for woocommerce, product inquiry for woocommerce, request for quote plugin woocommerce, enquiry plugin woocommerce, inquiry plugin woocommerce
 Requires at least: 3.4
-Tested up to: 4.7
-Version: 2.0
+Tested up to: 4.8
+Version: 2.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -104,6 +104,9 @@ Currently, the button is displayed only on the single product page.
 3. Product enquiry form
 
 == Changelog ==
+
+= 2.1 =
+* Improvements - Minor layout improvements.
 
 = 2.0 =
 * Feature - Admin can decide whether Product Author should receive enquiry emails or not

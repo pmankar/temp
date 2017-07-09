@@ -333,7 +333,7 @@ legend {
     width: 100%;
     z-index: 10;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);    /*dim the background*/
+   /* background-color: rgba(0, 0, 0, 0.3);    dim the background*/
 }
 
 #Other_Settings .pew_upgrade_layer > .pew_uptp_cont {
@@ -353,8 +353,9 @@ legend {
 }
 
 .pew_uptp_cont {
+
     border: 1px solid #DDD;
-    padding: 0 10px 10px;
+    padding: 1px 5px 4px;
     background-color: #DDD;
     color: #960000;
     border-radius: 4px;
@@ -397,12 +398,15 @@ legend {
 }
 
 #entry_dummy .pew_upgrade_layer {
-    margin: 1px 0 0 1px;    /*height: 623px;*/
+    margin: 1px 0 3% 1px;    /*height: 623px;*/
     width: 100%;
+    
 }
 
 #entry_dummy .pew_upgrade_layer > .pew_uptp_cont {
-    margin: 300px auto;
+    float: right;
+    margin: 256px auto;
+    margin-right: 3%
 }
 
 /*ICONS*/
