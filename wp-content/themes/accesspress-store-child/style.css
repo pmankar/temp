@@ -297,8 +297,19 @@ h1, h2, h3, h4, h5, h6,
 
 .woocommerce.single.single-product .woocommerce-tabs ul.tabs li.active{
 	color: #841439;
-	background: url(images/841439/tab.png) no-repeat right;
-    border-bottom: 2px solid #841439;
+	background: none;
+    border-top: 2px solid #841439;
+    border-right: 2px solid #841439;
+    border-left: 2px solid #841439;
+    border-bottom: 2px solid #FFF;
+    padding-top: 5px;
+}
+
+.woocommerce.single.single-product .woocommerce-tabs ul.tabs li{
+	background: none;
+	border: 1px solid #d3ced2;
+	border-top-right-radius: 24px;
+	border-top-left-radius: 10px;
 }
 
 .woocommerce.single.single-product .woocommerce-tabs .panel.entry-content > p {
