@@ -6224,7 +6224,7 @@ h3#order_review_heading {
 }
 #ak-top:hover {
     cursor: pointer;
-    opacity: 0.7;
+    opacity: 1;
 }
 #ak-top:before {
     content: "\f139";

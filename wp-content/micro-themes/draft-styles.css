@@ -1,0 +1,36 @@
+/*  MICROTHEMER STYLES  */
+
+
+/*= General =================== */
+
+/** General >> Woocommerce product search button **/
+.woocommerce-product-search .button {
+	background-color: rgb(132, 20, 57) !important;
+}
+
+/** General >> Button **/
+.button {
+	background-color: rgb(132, 20, 57) !important;
+}
+
+
+/*[ Phone ]*/
+@media (max-width: 480px) {
+
+	/*= General =================== */
+
+	/** General >> Search field **/
+	.search-field {
+		position: static !important;
+	}
+
+	/** General >> Searchform **/
+	.searchform {
+		width: 100% !important;
+	}
+
+	/** General >> Searchform input **/
+	.searchform input {
+		margin-right: 50px !important;
+	}
+}

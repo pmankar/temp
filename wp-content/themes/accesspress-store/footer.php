@@ -42,7 +42,7 @@
 </div>
 </div> <!-- top footer end -->
 <?php endif; ?>
-<div class="footer-bottom" style="border-top: 2px solid crimson">
+<div class="footer-bottom" style="border-top: 2px solid #841439">
     <div class="ak-container">
         <div class="seal-logo-wrap">
             <?php
