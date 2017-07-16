@@ -132,7 +132,7 @@ input#woocommerce-product-search-field-0.search-field:focus {
 }
 
 .headertwo .headertwo-wrap .login-woocommerce a {
-    color: #4D4D4D;
+    color: #4d4d4d;
 }
 
 .headertwo .headertwo-wrap a:hover {
@@ -159,11 +159,9 @@ input#woocommerce-product-search-field-0.search-field:focus {
 .woocommerce.widget_price_filter .price_slider_wrapper .price_slider_amount button,
 input.contact.wpi-button,
 .contact.wpi-button, .contact-button,
-nav.woocommerce-MyAccount-navigation ul li,
-.wpcf7-submit{
+nav.woocommerce-MyAccount-navigation ul li {
     background: #841439 !important;
     border: 2px solid #841439 !important;
-    border-radius: 0px !important;
     color: #fff !important;
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px inset;
     transition: all 500ms cubic-bezier(0.39,0.5,0.15,1.36);
@@ -178,8 +176,7 @@ nav.woocommerce-MyAccount-navigation ul li,
 .woocommerce .widget_price_filter .price_slider_amount button:hover,
 input.contact.wpi-button:hover,
 .contact.wpi-button:hover, .contact-button:hover,
-nav.woocommerce-MyAccount-navigation ul li:hover,
-.wpcf7-submit:hover{
+nav.woocommerce-MyAccount-navigation ul li:hover{
     color: #841439 !important;
     border-color: #841439 !important;
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 70px inset;
@@ -231,12 +228,6 @@ ul.products.list li.product{
 }
 
 input:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px #841439 !important;
-  border: 1px solid #841439 !important;
-}
-
-textarea:focus {
   outline: none;
   box-shadow: 0px 0px 5px #841439 !important;
   border: 1px solid #841439 !important;
@@ -371,7 +362,7 @@ nav.woocommerce-MyAccount-navigation{
 
 
 div.themecolor>div{
-	background-color: #841439!important;
+	background-color: #009994!important;
 }
 
 div.themecolor>div>span{
@@ -379,7 +370,7 @@ div.themecolor>div>span{
 }
 
 div.themecolor>a:hover{
-	color: #841439!important;
+	color: #009994!important;
 }
 
 .site-logo img {
@@ -408,27 +399,16 @@ input:focus {
   border: 1px solid #e24545;
 }
 
-.woocommerce .woocommerce-message{
-    border-bottom: 3px solid #841439;
+.contact.wpi-button, .contact-button {
+  	background: #e24545 !important;
+    color: #FFF !important;
+    border-radius: 0px !important;
+    border: 2px solid #e24545 !important;
 }
 
-.woocommerce .woocommerce-message:before {
-    color: #8fae1b !important;
-}
-
-.woocommerce table.shop_table th{
-	color: #4D4D4D;
-}
-
-select.wpcf7-form-control{
-	height: 2em;
-}
-
-.wpcf7-form-control{
-	border-radius: 3px;
-	border: 1px solid #ccc;
-}
-
-.content-area article .entry-content div.content-page{
-	color: #4D4D4D;
+.contact.wpi-button:hover, .contact-button:hover {
+    color: #C05860 !important;
+    background: #FFF !important;
+  	border-radius: 0px !important;
+    border: 2px solid #e24545 !important;
 }
