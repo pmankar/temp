@@ -48,17 +48,7 @@ if($breadcrumb == '1') :
 </header>
 <?php endif; ?>
 <div class="inner">
-    <div class="ak-container left-sidebar">
-		<div id="secondary" class="widget-area secondary-left sidebar">
-            <?php
-            /**
-             * woocommerce_sidebar hook
-             *
-             * @hooked woocommerce_get_sidebar - 10
-             */
-            do_action('woocommerce_sidebar');
-            ?>
-        </div>
+    <div class="ak-container right-sidebar">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">
 
@@ -79,7 +69,16 @@ if($breadcrumb == '1') :
                 ?>
             </div>
         </div>
-        
+        <div id="secondary" class="widget-area secondary-right sidebar">
+            <?php
+            /**
+             * woocommerce_sidebar hook
+             *
+             * @hooked woocommerce_get_sidebar - 10
+             */
+            do_action('woocommerce_sidebar');
+            ?>
+        </div>
     </div>
 </div>
 <?php get_footer('shop');

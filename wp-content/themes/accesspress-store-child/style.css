@@ -160,7 +160,10 @@ input#woocommerce-product-search-field-0.search-field:focus {
 input.contact.wpi-button,
 .contact.wpi-button, .contact-button,
 nav.woocommerce-MyAccount-navigation ul li,
-.wpcf7-submit{
+.wpcf7-submit,
+input.application_button.button,
+button#send-btn,
+button#cancel{
     background: #841439 !important;
     border: 2px solid #841439 !important;
     border-radius: 0px !important;
@@ -179,9 +182,20 @@ nav.woocommerce-MyAccount-navigation ul li,
 input.contact.wpi-button:hover,
 .contact.wpi-button:hover, .contact-button:hover,
 nav.woocommerce-MyAccount-navigation ul li:hover,
-.wpcf7-submit:hover{
+.wpcf7-submit:hover,
+input.application_button.button:hover,
+button#send-btn:hover,
+button#cancel:hover{
     color: #841439 !important;
     border-color: #841439 !important;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 70px inset;
+}
+
+input.application_button.button:focus,
+input.contact.wpi-button:focus{
+	color: #841439 !important;
+    border-color: #841439 !important;
+    background-color: #FFF !important;
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 70px inset;
 }
 
@@ -416,7 +430,8 @@ input:focus {
     color: #8fae1b !important;
 }
 
-.woocommerce table.shop_table th{
+.woocommerce table.shop_table th,
+#secondary.sidebar ul li{
 	color: #4D4D4D;
 }
 
@@ -431,4 +446,33 @@ select.wpcf7-form-control{
 
 .content-area article .entry-content div.content-page{
 	color: #4D4D4D;
+}
+
+.main-navigation ul ul li a{
+	background-color: #841439;
+}
+
+.main-navigation ul.menu > li > ul::after{
+    border-bottom-color: #841439;
+}
+
+.main-navigation ul ul li:hover > a {
+    background-color: #942449;
+}
+
+
+.headertwo .home_navigation .inner_home #menu .main-navigation ul.menu > li:hover::after{
+	border-top-color: #841439;
+}
+
+.content-area nav .nav-links a {
+    background: #841439 !important;
+}
+
+ul.job_listings li.job_listing a div.position h3{
+	font-weight: inherit;
+}
+
+.txtResizeV{
+	resize:vertical;
 }

@@ -188,6 +188,10 @@ function ask_about_product()
         $prefix = "";
         $suffix = " by WisdmLabs";
     }
+    $display_url="";
+    $display_message = '';
+    $prefix = "";
+    $suffix = "";
 ?>
 <div class='contact-bottom'><a href='#' onclick="return false;"><?php echo $prefix; ?></a><a href='<?php echo $display_url ?>' target='_blank' rel='nofollow'><?php echo $display_message;?></a><a href='#' onclick="return false;"><?php echo $suffix; ?></a></div>
   </div>
