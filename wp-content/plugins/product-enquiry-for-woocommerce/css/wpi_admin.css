@@ -1,7 +1,7 @@
 /*
  * Settings page styles
  */
-.premium {
+ .premium {
     color: #FFFFFF;
     background-color: #a73232;
 }
@@ -307,10 +307,10 @@ legend {
       background-repeat: no-repeat;
       background-size:100% 100%;*/
 
-    /*overflow-x: auto;*/
-}
+      /*overflow-x: auto;*/
+  }
 
-.layer_parent {
+  .layer_parent {
     position: relative;
     margin-right: 15px;
     padding: 10px;
@@ -333,12 +333,12 @@ legend {
     width: 100%;
     z-index: 10;
     height: 100%;
-   /* background-color: rgba(0, 0, 0, 0.3);    dim the background*/
+    /* background-color: rgba(0, 0, 0, 0.3);    dim the background*/
 }
 
 #Other_Settings .pew_upgrade_layer > .pew_uptp_cont {
-    float: right;
-    margin: 160px 26px 0 0;
+    /*float: right;*/
+    margin: 160px 26px 0 450px;
 }
 
 #available .pew_uptp_cont {
@@ -404,8 +404,9 @@ legend {
 }
 
 #entry_dummy .pew_upgrade_layer > .pew_uptp_cont {
-    float: right;
+    /*float: right;*/
     margin: 256px auto;
+    margin-left: 35%;
     margin-right: 3%
 }
 
@@ -546,7 +547,7 @@ legend {
   width:80%;
   margin-left:5%; 
   } */
-.wdm-rating {
+  .wdm-rating {
     text-align: center;
 }
 
@@ -625,7 +626,7 @@ legend {
  *#7a77ae
  *46bfec
  */
-.wdm-services-offered {
+ .wdm-services-offered {
 
     /*min-height: 25em;
     background-color: #F1EDE9;/*#ededed;*/
@@ -1168,7 +1169,7 @@ Color option three
   float: right;
   }*/
 
-/* wdm-services boxes */
+  /* wdm-services boxes */
 
 /*ul.wdm-services-list {
 list-style: none;
@@ -1472,6 +1473,6 @@ ul.three-grids li.wdm-plugins-item {
 .wdm-feature:nth-child(-n+5) {
     margin-bottom: 25px;
     }*/
-.wdm_upgrade {
-    margin-top: 10px;
-}
+    .wdm_upgrade {
+        margin-top: 10px;
+    }

@@ -2,6 +2,8 @@
 // strings for all pages
 
 $TvrLang = array(
+	'learn_more' => esc_html__('Learn more', 'microthemer'),
+	'slow_styles_tab' => esc_html__('Styles tab slows the browser: %1$s sec (avg)', 'microthemer'),
 	'drag_picker' => esc_html__('Drag to move color picker', 'microthemer'),
 	'parents' => esc_html__('Parents', 'microthemer'),
 	'parent' => esc_html__('Go to parent', 'microthemer'),
@@ -89,6 +91,9 @@ $TvrLang = array(
 	'reset_settings_confirm' => esc_html__('Are you sure you want to reset all settings?', 'microthemer'),
 	'reset_empty_folders' => esc_html__('Resetting empty folders', 'microthemer'),
 	'clear_styles_confirm' => esc_html__('Are you sure you want to clear all styles?', 'microthemer'),
+	'beaver_builder_confirm' => esc_html__('Beaver Builder is active. You will lose any unsaved Beaver Builder changes. Continue anyway?', 'microthemer'),
+	'page_reload_aborted' => esc_html__('Settings were saved. But you may need to reload the Microthemer interface to see the effects', 'microthemer'),
+	'halted' => esc_html__('halted', 'microthemer'),
 	'clear_styles' => esc_html__('Clearing styles', 'microthemer'),
 	'value_cleared' => esc_html__('value cleared', 'microthemer'),
 	'previous_name' => esc_html__('Previous name', 'microthemer'),
@@ -105,7 +110,7 @@ $TvrLang = array(
 	'error_500' => esc_html__('Internet Server Error.', 'microthemer'),
 	'error_parser' => esc_html__('Error.\nParsing JSON Request failed.', 'microthemer'),
 	'error_timeout' => esc_html__('Request timed out.', 'microthemer'),
-	'error_unknown' => esc_html__('Unknow error.', 'microthemer'),
+	'error_unknown' => esc_html__('Unknown error. WordPress may have logged you out. Try refreshing the page.', 'microthemer'),
 	'send_error' => esc_html__('Sending error report', 'microthemer'),
 	'send_error_failed' => esc_html__('Error sending failed', 'microthemer'),
 	'select_design_pack' => esc_html__('Please select a design pack from the list', 'microthemer'),

@@ -774,6 +774,11 @@ input.wpi-button {
 	line-height: 1.42857;
 	padding: 5px 5px 4px;
 	text-shadow: none;
+	max-width: 200px;
+	white-space: normal !important;
+	text-transform: none;
+	padding: .618em 0.5em;
+	margin: 2% 0;
 }
 input.wpi-button:hover,
 input.wpi-button:active,

@@ -1,5 +1,24 @@
 CHANGELOG
 
+= 5.0.6.8 (July 12th, 2017) =
+
+# Change
+* Target button says 'Cancel' when targeting mode is already active, and has a light background. The green and 'Target' text didn't seem quite right.
+
+# Enhancement
+* Updated ACE code editor to latest version.
+* Microthemer warns that the 'Styles' tab is slowing the browser if the script takes more than one second to parse CSS stylesheets.
+* The frontend preview area automatically adjusts to changes in the size of the main UI window. So when launching or closing a native browser inspector, the preview fills the available space nicely without cropping content or leaving an unnecessary gap.
+* Microthemer shows a color box next to the computed value for a CSS property if the value is a color value.
+* If 'Unknown error' is displayed after trying to save settings, MT suggests refreshing the page due to potential automatic WP logout.
+* Microthemer warns before reloading the page after e.g. updating Preferences if Beaver Builder is active in the site preview. This is to protect against accidentally losing Beaver Builder changes.
+* Added scrollbars to green 'Quick create/go' list over a maximum height. More improvements to this feature coming soon.
+
+# Bugs fixed
+* ACE CSS syntax highlighter acknowledges 'fill' as a valid CSS property.
+* On the Targeting suggestions, hovering of 'Choose suggestion' radio or the number also updates the highlighting preview.
+* The 'Target' button disappeared in code view during targeting if controls were docked to the right.
+
 = 5.0.5.7 (July 3rd, 2017) =
 
 # Bugs fixed

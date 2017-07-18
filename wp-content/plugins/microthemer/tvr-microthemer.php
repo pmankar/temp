@@ -5,13 +5,12 @@ Plugin URI: http://www.themeover.com/microthemer
 Text Domain: microthemer
 Domain Path: /languages
 Description: Microthemer is a feature-rich visual design plugin for customizing the appearance of ANY WordPress Theme or Plugin Content (e.g. posts, pages, contact forms, headers, footers, sidebars) down to the smallest detail. For CSS coders, Microthemer is a proficiency tool that allows them to rapidly restyle a WordPress theme or plugin. For non-coders, Microthemer's intuitive interface and "Double-click to Edit" feature opens the door to advanced theme and plugin customization.
-Version: 5.0.5.7
+Version: 5.0.6.8
 Author: Themeover
 Author URI: http://www.themeover.com
 */
 
 /* Copyright 2017 by Sebastian Webb @ Themeover */
-
 
 // Stop direct call
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
@@ -99,7 +98,7 @@ if ( is_admin() ) {
 		// define
 		class tvr_microthemer_admin {
 
-			var $version = '5.0.5.7';
+			var $version = '5.0.6.8';
 			var $db_chg_in_ver = '4.8.9';
 			var $locale = '';
 			var $time = 0;
@@ -1675,10 +1674,10 @@ if ( is_admin() ) {
 						array('h' => 'tvr_core', 'f' => 'mt-core.js'),
 
 						// js libraries (prefix name with mt- if I've edited the library)
-						// use ace2, ace3 and have /ace as sub dir for easy globs in gulp file
-						array('h' => 'tvr_ace', 'f' => 'lib/ace2/ace/ace.js'),
-						array('h' => 'tvr_ace_lang', 'f' => 'lib/ace2/ace/ext-language_tools.js'),
-						array('h' => 'tvr_ace_search', 'f' => 'lib/ace2/ace/ext-searchbox.js'),
+						// use ace2, ace4 and have /ace as sub dir for easy globs in gulp file
+						array('h' => 'tvr_ace', 'f' => 'lib/ace4/ace/ace.js'),
+						array('h' => 'tvr_ace_lang', 'f' => 'lib/ace4/ace/ext-language_tools.js'),
+						array('h' => 'tvr_ace_search', 'f' => 'lib/ace4/ace/ext-searchbox.js'),
 
 						array('h' => 'tvr_mcth_colorbox', 'f' => 'lib/colorbox/1.3.19/jquery.colorbox-min.js'),
 						array('h' => 'tvr_spectrum', 'f' => 'lib/colorpicker/mt-spectrum.js', 'dep' => array( 'jquery' )),
@@ -4863,7 +4862,7 @@ if ( is_admin() ) {
 
 			// hover inspect button
 			// an alias is used in wizard mode so content flows to right of variable width button
-			function hover_inspect_button($id = false){
+			function hover_inspect_button($id = false, $text = false){
 
 				$tip = esc_attr__("Keyboard shortcut: Ctrl+Alt+T", 'microthemer');
 
@@ -4875,10 +4874,12 @@ if ( is_admin() ) {
 					'hover-inspect-toggle',
 					$id,
 					array(
-						'text' => esc_html__('Target', 'microthemer'),
+						'text' => $text ? $text : esc_html__('Target', 'microthemer'),
+						//'text' => 'conditional', // this proved tricky to maintain
+						// - see css .hover-inspect-toggle position:fixed hack.
 						'dataAtts' => array(
 							'no-save' => 1,
-							'dyn-tt-root' => $id ? false : 'hover-inspect-toggle'
+							'dyn-tt-root' => $id ? false : 'hover-inspect-toggle',
 						)
 					)
 				);
@@ -9200,6 +9201,7 @@ DateCreated: '.date('Y-m-d').'
 
 // frontend code - insert active-styles.css in head section if active
 if (!is_admin()) {
+
 	// admin class
 	if (!class_exists('tvr_microthemer_frontend')) {
 		// define
@@ -9210,7 +9212,7 @@ if (!is_admin()) {
 			var $preferencesName = 'preferences_themer_loader';
 			// @var array $preferences Stores the ui options for this plugin
 			var $preferences = array();
-			var $version = '5.0.5.7';
+			var $version = '5.0.6.8';
 			var $microthemeruipage = 'tvr-microthemer.php';
 			var $mt_front_nonce = 'mt-temp-nonce';
 			var $file_stub = '';

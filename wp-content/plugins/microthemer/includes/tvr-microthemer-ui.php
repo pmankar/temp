@@ -407,7 +407,7 @@ if ($this->edge_mode['active']){
 
 						<?php
 						// alias for hover inspect button, which will vary in size, so easier to have as inline-block element here
-						echo $this->hover_inspect_button();
+						echo $this->hover_inspect_button(false, esc_html__('Cancel', 'microthemer'));
 						?>
 
 						<div class="heading dialog-header naming-header">
@@ -782,7 +782,9 @@ if ($this->edge_mode['active']){
 					}
 					?>
 					<iframe id="viframe" frameborder="0" name="viframe"
-							rel="<?php echo $iframe_url; ?>" src="<?php echo $this->thispluginurl; ?>includes/place-holder2.html"></iframe>
+							rel="<?php echo $iframe_url; ?>"
+							src="<?php echo $this->thispluginurl; ?>includes/place-holder2.html"></iframe>
+
 					<div id="iframe-dragger"></div>
 
 				</div>
@@ -1877,6 +1879,15 @@ if ($this->edge_mode['active']){
 		<?php
 		if (!$this->optimisation_test){
 
+			// warning template
+			?>
+			<div id="notice-template" class="tvr-message tvr-template-notice tvr-warning">
+				<span class="mt-notice-icon"></span>
+				<span class="mt-notice-text"></span>
+			</div>
+			<?php
+
+			// ajax loaders
 			$this->hidden_ajax_loaders();
 
 			// template for displaying save error and error report option

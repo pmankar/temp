@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Product Enquiry for WooCommerce
  * Description: Allows prospective customers or visitors to make enquiry about a product, right from within the product page.
- * Version: 2.1
+ * Version: 2.2
  * Author: WisdmLabs
  * Author URI: https://wisdmlabs.com
  * Plugin URI: https://wordpress.org/plugins/product-enquiry-for-woocommerce
@@ -28,34 +28,16 @@ function check_woo_dependency()
 
         if (is_plugin_active('product-enquiry-for-woocommerce/product-enquiry-for-woocommerce.php')) {
                 deactivate_plugins(plugin_basename(__FILE__));
-                // deactivate_plugins('product-enquiry-for-woocommerce/product-enquiry-for-woocommerce.php');
         }
         unset($_GET['activate']);
     }
 }
-
-
-/*deactivation of pro version*/
-/*register_activation_hook(__FILE__, 'fun_create_tbl_enquiry');
-
-function fun_create_tbl_enquiry()
-{
-    $my_plugin = 'product-enquiry-pro/product_enquiry_pro.php';
-
-
-    if (is_plugin_active($my_plugin)) {
-        error_log("inside orrr");
-        //add_action('update_option_active_plugins', 'deactivate_dependent_product_enquiry_pro');
-    }
-}*/
-
 
 add_action('admin_init', 'messageProductEnquiryPro');
 
 function messageProductEnquiryPro()
 {
     if (is_plugin_active('product-enquiry-pro/product_enquiry_pro.php')) {
-        error_log("inside function");
         echo "<div class='error'><p>". __('Product Enquiry Pro plugin is active. Please deactivate in order to install Product Enquiry Free') ."</p></div>";
     }
 }
@@ -104,7 +86,7 @@ function ask_about_product_button()
     ?>
      <div id="enquiry">
             <input type="button" name="contact" value="<?php echo empty($form_data['custom_label']) ?
-            __('Make an enquiry for this product', 'product-enquiry-for-woocommerce'): $form_data['custom_label'];?>" class="contact wpi-button" />
+            __('Make an enquiry for this product', 'product-enquiry-for-woocommerce'): $form_data['custom_label'];?>" class="contact wpi-button single_add_to_cart_button button alt" />
      </div>
         
 <?php }
@@ -188,10 +170,6 @@ function ask_about_product()
         $prefix = "";
         $suffix = " by WisdmLabs";
     }
-    $display_url="";
-    $display_message = '';
-    $prefix = "";
-    $suffix = "";
 ?>
 <div class='contact-bottom'><a href='#' onclick="return false;"><?php echo $prefix; ?></a><a href='<?php echo $display_url ?>' target='_blank' rel='nofollow'><?php echo $display_message;?></a><a href='#' onclick="return false;"><?php echo $suffix; ?></a></div>
   </div>
@@ -302,11 +280,11 @@ function add_ask_product_settings()
   </div>
 
   <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev" style = "width:2% !important">
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev" style = "width:2% !important;box-shadow: none;">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next" style = "width:2% !important">
+  <a class="right carousel-control" href="#myCarousel" data-slide="next" style = "width:2% !important;box-shadow: none;">
     <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -556,6 +534,7 @@ jQuery(event.target).parent('.hide_class').fadeOut("slow");
     require('premium.php');
 } elseif ($active_tab === 'form') {
     wp_enqueue_script('wdm-tip', plugins_url("js/tooltip.js", __FILE__), array('jquery'));
+    wp_enqueue_script('wdm-settings', plugins_url("js/settings.js", __FILE__), array('jquery'));
     wp_enqueue_style('woocommerce_admin_styles', plugin_dir_url((dirname(__FILE__))) . 'woocommerce/assets/css/admin.css');
     wp_enqueue_script('jquery-tiptip', array( 'jquery' ));
     $pro = "<span title='Pro Feature' class='pew_pro_txt'>".__('[Available in PRO]', 'product-enquiry-for-woocommerce')."</span>";
@@ -578,10 +557,10 @@ jQuery(event.target).parent('.hide_class').fadeOut("slow");
 </div>
 <div class='right_div'>
 <?php
-$helptip = __('You can add one reciepient email address', 'product-enquiry-for-woocommerce');
+$helptip = __('You can add multiple email addresses separated by comma', 'product-enquiry-for-woocommerce');
 echo wdmHelpTip($helptip);
 ?>
-<input type="text" class="wdm_wpi_input wdm_wpi_text email" name="wdm_form_data[user_email]" id="wdm_user_email" value="<?php echo empty($form_data['user_email']) ? get_option('admin_email') : $form_data['user_email'];?>" />
+<input type="text" class="wdm_wpi_input wdm_wpi_text" name="wdm_form_data[user_email]" id="wdm_user_email" value="<?php echo empty($form_data['user_email']) ? get_option('admin_email') : $form_data['user_email'];?>" />
 <span class='email_error'> </span>
     </div>
     <div class='clear'></div>
@@ -830,11 +809,15 @@ function contact_email()
         $admin_email=get_option('admin_email');
         $site_name =get_bloginfo('name');
         $recipient_emails = array();
-        $recipient_email=(!empty($form_data['user_email']))?$form_data['user_email']:"";
-        array_push($recipient_emails, $recipient_email);
+        if ($form_data[ 'user_email' ] != '') {
+            $recipient_email = explode(',', $form_data[ 'user_email' ]);
+        }
+        $recipient_email = array_map('trim', $recipient_email);
+        foreach ($recipient_email as $singleEmail) {
+            array_push($recipient_emails, $singleEmail);
+        }
         if (isset($form_data['send_mail_to_admin'])) {
             array_push($recipient_emails, $admin_email);
-            // $recipient_email=$admin_email;
         }
 
         $authorEmail = $_POST['uemail'];
@@ -886,7 +869,7 @@ function contact_email()
         }
     
         if ($send_mail) {
-            _e("Enquiry was sent succesfully", "product-enquiry-for-woocommerce");
+            _e("Enquiry was sent successfully", "product-enquiry-for-woocommerce");
             if ($cc == 1) {
                 wp_mail($to, $subject, wordwrap($body, 100), $headers);
             }
