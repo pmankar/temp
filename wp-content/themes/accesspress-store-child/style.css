@@ -28,6 +28,7 @@
 	background-color: white;
 	z-index: 99999;
 	border-bottom: 2px solid #841439;
+    padding-bottom: 3px;
 }
 
 .home_navigation{
@@ -333,21 +334,21 @@ h1, h2, h3, h4, h5, h6,
 .woocommerce.single.single-product .woocommerce-tabs ul.tabs li.active{
 	color: #841439;
 	background: none;
-    border-top: 1px solid #841439;
+    border-top: 3px solid #841439;
     border-right: 1px solid #841439;
     border-left: 1px solid #841439;
     border-bottom: 1px solid #FFF;
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 .woocommerce.single.single-product .woocommerce-tabs ul.tabs li{
+	margin-right: 0px;
 	background: #efefef;
 	border-top: 1px solid #4d4d4d;
 	border-left: 1px solid #4D4D4D;
 	border-right: 1px solid #4D4D4D;
 	border-bottom: 1px solid #841439;
-	border-top-right-radius: 24px;
-	border-top-left-radius: 10px;
+	padding: 10px;
 }
 
 .woocommerce.single.single-product .woocommerce-tabs .panel.entry-content > p,
@@ -367,8 +368,14 @@ p {
     border-bottom: 2px solid #841439;
 }
 
+.woocommerce.single.single-product div.product form.cart{
+	width: 100%;
+}
+
+.woocommerce div.product form.cart .variations select,
 .woocommerce.single.single-product .entry-summary form button.button{
-	width:300px !important;
+	min-width: 57%px;
+	width:100% !important;
 }
 
 .woocommerce.single.single-product .entry-summary .product_meta div span {
@@ -475,4 +482,23 @@ ul.job_listings li.job_listing a div.position h3{
 
 .txtResizeV{
 	resize:vertical;
+}
+
+.woocommerce input.button{
+	padding: 5px 5px 4px;
+}
+
+.metainfo{
+	margin-left: 0px;
+	margin-top: 30px;
+}
+
+.metainfo li{
+	display: inline-block;
+	padding: 0px 10px;
+	border-left: 1px dotted #841439;
+}
+
+.woocommerce div.product p.price, .woocommerce div.product span.price{
+	color: #388e3c;
 }
