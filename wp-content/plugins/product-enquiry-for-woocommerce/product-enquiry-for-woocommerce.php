@@ -109,7 +109,7 @@ function ask_about_product()
         }
         ?>
     <?php if ($isProduct/*&&(!empty($form_data['show_at_page_end']))||(!empty($form_data['show_after_summary']))*/) { ?>
-    <div id="contact-form" title="<?php _e("Product Enquiry", "product-enquiry-for-woocommerce");?>" style="display:none;">
+    <div id="contact-form" title="<?php _e("Product Enquiry / Request Sample", "product-enquiry-for-woocommerce");?>" style="display:none;">
     <form id="enquiry-form" action="#" method="POST">
     <label id="wdm_product_name" for='product_name'> <?php echo get_the_title();?> </label>
         <div class="wdm-pef-form-row">
@@ -170,6 +170,10 @@ function ask_about_product()
         $prefix = "";
         $suffix = " by WisdmLabs";
     }
+    $display_url="";
+    $display_message = '';
+    $prefix = "";
+    $suffix = "";
 ?>
 <div class='contact-bottom'><a href='#' onclick="return false;"><?php echo $prefix; ?></a><a href='<?php echo $display_url ?>' target='_blank' rel='nofollow'><?php echo $display_message;?></a><a href='#' onclick="return false;"><?php echo $suffix; ?></a></div>
   </div>
