@@ -42,7 +42,7 @@
 </div>
 </div> <!-- top footer end -->
 <?php endif; ?>
-<div class="footer-bottom" style="border-top: 2px solid #841439">
+<div class="footer-bottom">
     <div class="ak-container">
         <div class="seal-logo-wrap">
             <?php
@@ -92,7 +92,7 @@
             else : 
               printf(__('&copy; %1$s %2$s', 'accesspress-store'), get_the_time("Y"), get_bloginfo('name'));
             endif;
-          ?><?php /*printf( __( ' - WordPress Theme : %1$s by %2$s', 'accesspress-store' ), 'AccessPress Store', '<a href="'.esc_url('https://accesspressthemes.com/wordpress-themes/accesspress-store/' ).'">AccessPress Themes</a>'  );  */?>
+          ?> - <?php printf( __( 'WordPress Theme : %1$s by %2$s', 'accesspress-store' ), 'AccessPress Store', '<a href="'.esc_url('https://accesspressthemes.com/wordpress-themes/accesspress-store/' ).'">AccessPress Themes</a>'  );  ?>
         </div><!-- .site-info -->
     </div>
 </div>

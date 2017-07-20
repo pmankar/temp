@@ -48,7 +48,7 @@ if($breadcrumb == '1') :
 </header>
 <?php endif; ?>
 <div class="inner">
-    <div class="ak-container right-sidebar">
+    <div class="ak-container">
         <div id="primary" class="content-area">
             <div class="content-inner clearfix">
 
@@ -77,7 +77,6 @@ if($breadcrumb == '1') :
              * @hooked woocommerce_get_sidebar - 10
              */
             do_action('woocommerce_sidebar');
-            
             ?>
         </div>
     </div>

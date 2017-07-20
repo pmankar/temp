@@ -3,7 +3,7 @@
 Plugin Name: WP Super Cache
 Plugin URI: https://wordpress.org/plugins/wp-super-cache/
 Description: Very fast caching plugin for WordPress.
-Version: 1.5.0
+Version: 1.5.1
 Author: Automattic
 Author URI: https://automattic.com/
 License: GPL2+
@@ -63,7 +63,9 @@ if( !defined( 'WP_CACHE' ) || ( defined( 'WP_CACHE' ) && constant( 'WP_CACHE' ) 
 }
 
 include(WPCACHEHOME . 'wp-cache-base.php');
-include( WPCACHEHOME . 'rest/load.php' );
+if ( class_exists( 'WP_REST_Controller' ) ) {
+	include( WPCACHEHOME . 'rest/load.php' );
+}
 
 function wp_super_cache_text_domain() {
 	load_plugin_textdomain( 'wp-super-cache', false, basename( dirname( __FILE__ ) ) . '/languages' );

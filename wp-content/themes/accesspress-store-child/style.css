@@ -182,6 +182,8 @@ button raq-send-request{
 .woocommerce input.button:hover,
 .woocommerce div.button:hover,
 .woocommerce .gridlist-buttonwrap .add_to_cart_button:hover,
+.woocommerce ul.products li.product .price-cart .gridlist-buttonwrap a.button:hover, .woocommerce ul.products li.product .price-cart .added_to_cart:hover,
+.woocommerce ul.products li.product .price-cart .gridlist-buttonwrap a.button:hover:before,
 .woocommerce .widget_price_filter .price_slider_amount button:hover,
 input.contact.wpi-button:hover,
 .contact.wpi-button:hover, .contact-button:hover,
@@ -553,3 +555,29 @@ input.wpcf7-form-control.wpcf7-submit{
 .woocommerce .content-area .woocommerce-ordering select{
 	padding-left: 10px;
 }
+
+.apwidget_title #secondary.sidebar .product_list_widget::before, .apwidget_title #secondary.sidebar .woocommerce > ul:before, .apwidget_title .comment-form::before, .apwidget_title .widget > p::before, .apwidget_title #secondary.sidebar .widget_price_filter::after{
+	top: -20px;
+}
+
+.collection_combine{
+	display: none;
+}
+
+.woocommerce ul.products.list .collection_desc{
+	float: none;
+	width: 100%;
+}
+
+mark, ins{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+
+
+
+

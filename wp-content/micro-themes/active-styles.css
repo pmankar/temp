@@ -1,2 +1,106 @@
 /*  MICROTHEMER STYLES  */
 
+
+
+/*[ Tablet & Phone ]*/
+@media (max-width: 767px) {
+
+	/*= General =================== */
+
+	/** General >> .content-inner **/
+	.content-inner {
+		margin-top: 10px !important;
+		margin-right: 10px !important;
+		margin-bottom: 10px !important;
+		margin-left: 10px !important;
+	}
+
+	/** General >> #secondary **/
+	#secondary {
+		width: 100% !important;
+		margin-top: 10px !important;
+		margin-right: 10px !important;
+		margin-bottom: 10px !important;
+		margin-left: 10px !important;
+	}
+
+	/** General >> .inner **/
+	.inner {
+		margin-bottom: 20px !important;
+	}
+
+	/** General >> .top-footer-wrap **/
+	.top-footer-wrap {
+		margin-top: 20px !important;
+	}
+
+	/** General >> .entry-content **/
+	.entry-content {
+		width: 100% !important;
+	}
+
+	/** General >> div#primary **/
+	div#primary {
+		width: 100% !important;
+	}
+}
+
+/*[ Phone ]*/
+@media (max-width: 480px) {
+
+	/*= General =================== */
+
+	/** General >> Searchsubmit **/
+	.searchsubmit {
+		width: 40px !important;
+	}
+
+	/** General >> Site branding **/
+	#site-branding {
+		padding-bottom: 0 !important;
+	}
+
+	/** General >> Wpcf7 validates as required **/
+	.wpcf7-validates-as-required {
+		width: 80% !important;
+	}
+
+	/** General >> Wpcf7 form control wrap wpcf7 form control **/
+	.wpcf7-form-control-wrap .wpcf7-form-control {
+		width: 100% !important;
+		min-width: 80% !important;
+	}
+
+	/** General >> .woocommerce-MyAccount-navigation ul li **/
+	.woocommerce-MyAccount-navigation ul li {
+		width: 100% !important;
+	}
+
+	/** General >> nav li **/
+	nav li {
+		padding-top: 3px !important;
+		padding-right: 3px !important;
+		padding-bottom: 3px !important;
+		padding-left: 3px !important;
+	}
+
+	/** General >> .woocommerce-MyAccount-navigation **/
+	.woocommerce-MyAccount-navigation {
+		width: 100% !important;
+	}
+
+	/** General >> .content-inner **/
+	.content-inner {
+		width: 50% !important;
+	}
+
+	/** General >> #secondary **/
+	#secondary {
+		width: 100% !important;
+	}
+
+	/** General >> div#primary **/
+	div#primary {
+		width: 100% !important;
+	}
+}

@@ -1,5 +1,5 @@
 <header id="mastheads" class="site-header headertwo" role="banner">
-    <?php /*
+    
     <div class="before-top-header">
         <div class="ak-container clearfix">
             <?php if ( accesspress_store_before_top_header_enabled() ): ?>
@@ -30,7 +30,6 @@
             
         </div>
     </div>
-	*/?>
 
     <div class="top-header clearfix">
         <div class="ak-container clearfix">

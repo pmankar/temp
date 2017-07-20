@@ -1,5 +1,5 @@
 <?php
-/**
+/* Template Name: Full width content
  * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
@@ -37,13 +37,14 @@ if($breadcrumb == '1') :
     </div>
 </div>
 <?php endif; ?>
+
 <div class="inner">
-    <main id="main" class="site-main clearfix <?php echo $single_page_layout; ?>">
+    <main id="fwc" class="full-width-contents">
         <?php if ($single_page_layout == 'both-sidebar'): ?>
             <div id="primary-wrap" class="clearfix">
         <?php endif; ?>
 
-            <div id="primary" class="content-area">
+            <div id="contents" class="content-area">
 
                 <?php while ( have_posts() ) : the_post(); ?>
 

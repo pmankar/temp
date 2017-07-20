@@ -71,4 +71,17 @@ function add_more_meta(){
 	echo "</ul>";
 }
 
-remove_action( 'woocommerce_single_product_summary',  array( $GLOBALS['YITH_YWRAQ_Frontend'], 'add_button_single_page' ), 35 ); 
+remove_action( 'woocommerce_single_product_summary',  array( $GLOBALS['YITH_YWRAQ_Frontend'], 'add_button_single_page' ), 35 );
+
+
+// remove images from shop page, including the sale flash 
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+
+
+// remove images from single product page, including the flash
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+
+// remove images from category page:
+remove_action('woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10 );
